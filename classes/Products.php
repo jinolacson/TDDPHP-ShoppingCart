@@ -2,6 +2,9 @@
 /**
  * Product Class
  */
+
+ declare(strict_types=1);
+
 class Products
 {
     /**
@@ -41,9 +44,6 @@ class Products
 
     public function __construct()
     {
-        if (!session_id()) {
-            session_start();
-        }
     }
     /**
      * Add product
@@ -136,30 +136,30 @@ $product = new Products();
 
 $product->addproducts(1, 1, [
     'name' => "Mouse",
-    'price' => 100
+    'price' => '100'
 ]);
 
 $product->addproducts(2, 3, [
     'name' => "Keyboard",
-    'price' => 250
+    'price' => '250'
 ]);
 
 $product->addproducts(3, 6, [
     'name' => "Monitor",
-    'price' => 6000
+    'price' => '8000'
 ]);
 
 $product->addproducts(4, 6, [
     'name' => "Chair",
-    'price' => 6000
+    'price' => '6000'
 ]);
 
 $product->addproducts(5, 6, [
     'name' => "Avr",
-    'price' => 6000
+    'price' => '6000'
 ]);
 
-$product->readProducts();
+//$product->readProducts();
 //$product->getTotalProducts();
 
 ?>
