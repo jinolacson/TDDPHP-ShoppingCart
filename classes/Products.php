@@ -8,7 +8,7 @@
 class Products
 {
     /**
-     * Collection of Production Lists
+     * Collection of Products Lists
      *
      * @var array
      */
