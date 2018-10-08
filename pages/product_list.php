@@ -13,7 +13,7 @@
         <th>Name</th>
         <th>Price</th>
         <th>Quantity</th>
-        <th>Add to Cart</th>
+        <th>Action</th>
     </tr>
     <?php 
         foreach ($products->getProducts() as $key => $list) {
@@ -22,7 +22,7 @@
             echo '<td>'.$list['name'].'</td>';
             echo '<td>'.$list['price'].'</td>';
             echo '<td>'.$list['quantity'].'</td>';
-            echo '<td><a href="index.php?page=cart&item_code='.$list['id'].'">[Add to cart]</a></td>';
+            echo '<td><a href="index.php?page=add_to_cart&item_code='.$list['id'].'">Add to cart</a></td>';
             echo '</tr>';
         }
     ?>

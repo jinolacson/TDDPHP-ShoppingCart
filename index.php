@@ -1,3 +1,6 @@
+<?php 
+ini_set('display_errors', 1);
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,8 +11,8 @@
     <link rel="stylesheet" type="text/css" href="resources/css/main.css" />
 </head>
 <body>
+    <a href='index.php?page=products'>Home</a> | <a href='index.php?page=add_to_cart'>Cart</a>
    <?php
-    
     //include templates
     $page = $_GET['page'] ?? 'products';
 

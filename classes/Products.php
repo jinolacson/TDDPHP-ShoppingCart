@@ -165,6 +165,29 @@ class Products extends Abstract_products
     {
         return count(self::$products);
     }
+
+    /**
+     * return product list by product code
+     *
+     * @param string $search
+     * @return void
+     * access public
+     */
+    public static function searchProductCode($search = null)
+    {
+        if (is_null($search) || !is_numeric($search)) {
+            return false;
+        }
+
+        //check products if properly set
+        $product_items = is_array(self::readProducts()) || is_object(self::readProducts()) ? self::readProducts() : null;
+
+        foreach ($product_items as $key => $prods) {
+            if ($prods['id'] == trim($search)) {
+                return ($prods);
+            }
+        }
+    }
 }
 ?>
 
