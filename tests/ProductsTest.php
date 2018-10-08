@@ -16,7 +16,7 @@ class ProductsTest extends TestCase
      * @var string
      */
 
-    private static $prod = "";
+    private static $prod;
 
     protected function setUp()
     {
@@ -67,6 +67,33 @@ class ProductsTest extends TestCase
     {
         $this->assertEmpty(self::$prod::isEmpty());
     }
+ 
+    public function testGetListProducts()
+    {
+        $item_codes = [101,102,103,104,105];
+        $this->assertTrue(!empty($item_codes));
 
-     
+        return $item_codes;
+    }
+
+    /**
+     * @depends testGetListProducts
+     */
+    public function testMatchPrice($item_codes)
+    {
+        foreach ($item_codes as $item) {
+            $this->assertTrue(!empty(self::$prod::searchProductCode($item)));
+        }
+    }
+
+    /**
+     * Stop executing parent file
+     *
+     * @return void
+     * access private
+     */
+    protected function tearDown()
+    {
+        parent::tearDown();
+    }
 }
