@@ -32,7 +32,7 @@ class ProductsTest extends TestCase
      */
     public function testContainsVariables()
     {
-        $this->assertNull(self::$prod::readProducts());
+        $this->assertNotNull(self::$prod::readProducts());
     }
 
     /**
@@ -47,14 +47,15 @@ class ProductsTest extends TestCase
     }
 
     /**
-     * Product count it should be 5 products only
+     * Product(s) Should not empty
      *
      * @return void
      * access public
      */
-    public function testCountProducts()
+    public function testNotEmptyProducts()
     {
-        $this->assertCount(5, count(self::$prod::getProducts()));
+        //$this->assertCount(5, self::$prod::getTotalProducts() );
+        $this->assertTrue(!empty(self::$prod::getTotalProducts()));
     }
 
     /**
@@ -67,4 +68,6 @@ class ProductsTest extends TestCase
     {
         $this->assertEmpty(self::$prod::isEmpty());
     }
+
+     
 }
