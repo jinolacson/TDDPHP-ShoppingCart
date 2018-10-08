@@ -54,7 +54,6 @@ class ProductsTest extends TestCase
      */
     public function testNotEmptyProducts()
     {
-        //$this->assertCount(5, self::$prod::getTotalProducts() );
         $this->assertTrue(!empty(self::$prod::getTotalProducts()));
     }
 

@@ -3,9 +3,9 @@
  * Product Class
  */
 
- declare(strict_types=1);
+require_once 'Abstract_products.php';
 
-class Products
+class Products extends Abstract_products
 {
     /**
      * Collection of Products Lists
@@ -46,35 +46,35 @@ class Products
     {
     
         self::addproducts([
-            'id' => 1,
+            'id' => 101,
             'quantity' => 10,
             'name' => "Mouse",
             'price' => 100
         ]);
 
         self::addproducts([
-            'id' => 2,
+            'id' => 102,
             'quantity' => 10,
             'name' => "Keyboard",
             'price' => 250
         ]);
 
         self::addproducts([
-            'id' => 3,
+            'id' => 103,
             'quantity' => 10,
             'name' => "Monitor",
             'price' => 8000
         ]);
 
         self::addproducts([
-            'id' => 4,
+            'id' => 104,
             'quantity' => 10,
             'name' => "Chair",
             'price' => 6000
         ]);
 
         self::addproducts([
-            'id' => 5,
+            'id' => 105,
             'quantity' => 10,
             'name' => "Avr",
             'price' => 6000

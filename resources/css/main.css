@@ -1,0 +1,27 @@
+#products_table {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#products_table td,
+#products_table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#products_table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#products_table tr:hover {
+    background-color: #ddd;
+}
+
+#products_table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
