@@ -12,38 +12,73 @@ class Products
      *
      * @var array
      */
-    private $products = [];
+    protected static $products = [];
 
     /**
      * Unique index id
      *
      * @var integer
      */
-    protected $id = 0;
+    protected static $id = 0;
     
     /**
      * Name of product
      *
-     * @var [type]
+     * @var string
      */
-    protected $name;
+    protected static $name;
     
     /**
      * Product price
      *
      * @var integer
      */
-    protected $price = 0;
+    protected static $price = 0;
 
     /**
      * Product quantity
      *
      * @var integer
      */
-    protected $quantity = 0;
+    protected static $quantity = 0;
 
     public function __construct()
     {
+    
+        self::addproducts([
+            'id' => 1,
+            'quantity' => 10,
+            'name' => "Mouse",
+            'price' => 100
+        ]);
+
+        self::addproducts([
+            'id' => 2,
+            'quantity' => 10,
+            'name' => "Keyboard",
+            'price' => 250
+        ]);
+
+        self::addproducts([
+            'id' => 3,
+            'quantity' => 10,
+            'name' => "Monitor",
+            'price' => 8000
+        ]);
+
+        self::addproducts([
+            'id' => 4,
+            'quantity' => 10,
+            'name' => "Chair",
+            'price' => 6000
+        ]);
+
+        self::addproducts([
+            'id' => 5,
+            'quantity' => 10,
+            'name' => "Avr",
+            'price' => 6000
+        ]);
     }
     /**
      * Add product
@@ -54,25 +89,25 @@ class Products
      * @return void
      * access public
      */
-    public function addProducts($id, $quantity, $options = [])
+    public static function addProducts($options = [])
     {
-        if (isset($id) && is_numeric($id)) {
-            $this->id = $id;
+        if (isset($options['id']) && is_numeric($options['id'])) {
+            self::$id = $options['id'];
         }
 
-        if (isset($quantity) && is_numeric($quantity)) {
-            $this->quantity = $quantity;
+        if (isset($options['quantity']) && is_numeric($options['quantity'])) {
+            self::$quantity = $options['quantity'];
         }
 
         if (isset($options['name'])) {
-            $this->name = $options['name'];
+            self::$name = $options['name'];
         }
         
-        if (isset($options['price']) && preg_match('/^\d+$/', $options['price'])) {
-            $this->price = $options['price'];
+        if (isset($options['price']) &&   is_numeric($options['price']) ) {
+            self::$price = $options['price'];
         }
 
-        $this->productLists();
+        self::productLists();
     }
 
     /**
@@ -80,13 +115,14 @@ class Products
      *
      * @return void
      */
-    private function productLists()
+    public static function productLists()
     {
-        array_push($this->products, [
-            'id' => $this->id,
-            'name' => $this->name,
-            'price' => $this->price,
-            'quantity' => $this->quantity
+        array_push(self::$products, 
+        [
+            'id' => self::$id,
+            'name' => self::$name,
+            'price' => self::$price,
+            'quantity' => self::$quantity
         ]);
     }
 
@@ -95,10 +131,9 @@ class Products
      *
      * @return void
      */
-    public function readProducts()
+    public static function readProducts()
     {
-        echo "<pre>";
-        print_r($this->getProducts());
+        return self::getProducts();
     }
 
     /**
@@ -106,9 +141,9 @@ class Products
      *
      * @return void
      */
-    public function getProducts()
+    public static function getProducts()
     {
-        return count($this->products) > 0 ? $this->products : null;
+        return count(self::$products) > 0 ? self::$products : null;
     }
 
     /**
@@ -116,9 +151,9 @@ class Products
      *
      * @return boolean
      */
-    public function isEmpty()
+    public static function isEmpty()
     {
-        return empty(array_filter($this->products));
+        return empty(array_filter(self::$products));
     }
     
     /**
@@ -126,42 +161,11 @@ class Products
      *
      * @return void
      */
-    public function getTotalProducts()
+    public static function getTotalProducts()
     {
-        return count($this->products);
+        return count(self::$products);
     }
 }
-
-$product = new Products();
-
-$product->addproducts(1, 1, [
-    'name' => "Mouse",
-    'price' => '100'
-]);
-
-$product->addproducts(2, 3, [
-    'name' => "Keyboard",
-    'price' => '250'
-]);
-
-$product->addproducts(3, 6, [
-    'name' => "Monitor",
-    'price' => '8000'
-]);
-
-$product->addproducts(4, 6, [
-    'name' => "Chair",
-    'price' => '6000'
-]);
-
-$product->addproducts(5, 6, [
-    'name' => "Avr",
-    'price' => '6000'
-]);
-
-//$product->readProducts();
-//$product->getTotalProducts();
-
 ?>
 
 
