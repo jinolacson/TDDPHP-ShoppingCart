@@ -11,11 +11,19 @@ use PHPUnit\Framework\TestCase;
  */
 class CartsTest extends TestCase
 {
+    /**
+     * @var string
+     */
     protected $cart;
+
+    /**
+     * @var integer
+     */
     protected static $item_code_example = 101;
 
     public function setUp()
     {
+        // Instanciate of new Cart Object
         $this->cart = new Carts();
         $this->cart->setItemCode(self::$item_code_example);
     }
@@ -45,9 +53,9 @@ class CartsTest extends TestCase
     /**
      * @dataProvider cartVariablesProvider
      */
-    public function testCartVariables($compare,$type)
+    public function testCartVariables($compare, $type)
     {
-        $expected = $this->cart::checkVariables($compare,$type);
+        $expected = $this->cart::checkVariables($compare, $type);
         $this->assertTrue(!empty($expected));
     }
 

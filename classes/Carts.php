@@ -134,7 +134,7 @@ class Carts extends Abstract_carts
     }
 
     /**
-     * retur added products to cart
+     * return added products to cart
      *
      * @return array
      * access public
