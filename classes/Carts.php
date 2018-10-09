@@ -29,27 +29,21 @@ class Carts extends Abstract_carts
      */
     protected static $item_id = 0;
 
-    public function __construct($item_code = null)
+    public function __construct()
     {
         //instantiate Product Object
         self::$products = new Products();
-
-        //set item code
-        self::$item_id = $item_code;
-
-        //set new item(s)
-        $this->setCartItems();
     }
 
     /**
-     * add items to cart
+     * set items to cart
      *
      * @return void
      * access public
      */
-    public function setCartItems()
+    public function setCartItems($item_code = null)
     {
-        if (is_null(self::$item_id) || !is_numeric(self::$item_id)) {
+        if (is_null($item_code) || !is_numeric($item_code)) {
             return false;
         }
 
@@ -57,13 +51,42 @@ class Carts extends Abstract_carts
             $_SESSION['cart'] = array();
         }
 
-        $_SESSION['cart'][self::$item_id] =
-        [
+        $this->setItemCode($item_code);
+        $this->setCartSessionItems();
+        
+    }
+
+    public function setCartSessionItems()
+    {
+        $_SESSION['cart'][$this->getItemCode()] =[
             'id' => $this->getId(),
             'quantity' => $this->getQuantity(),
             'name' => $this->getName(),
             'price' =>  $this->getprice()
         ];
+    }
+
+    /**
+     * set item code
+     *
+     * @param int $item_code
+     * @return void
+     * access private
+     */
+    public function setItemCode($item_code = null)
+    {
+        self::$item_id = $item_code;
+    }
+
+    /**
+     * return item code
+     *
+     * @return integer
+     * access private
+     */
+    public function getItemCode(): int
+    {
+        return self::$item_id;
     }
 
     /**
@@ -74,7 +97,7 @@ class Carts extends Abstract_carts
      */
     public function getId() : ?string
     {
-        return self::$products::searchProductCode(self::$item_id)['id'];
+        return self::$products::searchProductCode($this->getItemCode())['id'];
     }
 
     /**
@@ -85,7 +108,7 @@ class Carts extends Abstract_carts
      */
     public function getQuantity() : ?string
     {
-        return self::$products::searchProductCode(self::$item_id)['quantity'];
+        return self::$products::searchProductCode($this->getItemCode())['quantity'];
     }
 
     /**
@@ -96,7 +119,7 @@ class Carts extends Abstract_carts
      */
     public function getName() : ?string
     {
-        return self::$products::searchProductCode(self::$item_id)['name'];
+        return self::$products::searchProductCode($this->getItemCode())['name'];
     }
 
     /**
@@ -107,7 +130,7 @@ class Carts extends Abstract_carts
      */
     public function getPrice() : ?string
     {
-        return self::$products::searchProductCode(self::$item_id)['price'];
+        return self::$products::searchProductCode($this->getItemCode())['price'];
     }
 
     /**
@@ -161,5 +184,23 @@ class Carts extends Abstract_carts
     public function destroyCartSession()
     {
         unset($_SESSION['cart']);
+    }
+
+    /**
+     * check if getters are properly set according to its type
+     *
+     * @param int $item_codes
+     * @param string $type
+     * @return void
+     * access public
+     */
+    public static function checkVariables($item_codes = null,$type = null)
+    {
+        if(is_null($item_codes) && is_null($type))
+        {
+            return false;
+        }
+
+        return self::$products::searchProductCode($item_codes)[$type];
     }
 }

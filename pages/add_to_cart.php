@@ -6,15 +6,19 @@ require_once 'classes/Carts.php';
 $item_code = $_GET['item_code'] ?? false;
 $action_delete = $_GET['delete'] ?? null;
 
+//instantiate object cart
+$cart = new Carts();
+
 if (isset($item_code) && is_numeric($item_code)) 
 {
-    new Carts($item_code);
+    $cart->setCartItems($item_code);
 }
 
 if (isset($item_code) && is_numeric($item_code) && isset($action_delete)) 
 {
-    $cart_delete = new Carts();
-    $cart_delete->removeCartItems($item_code);
+    $cart->removeCartItems($item_code);
+
+    //redirect cart page
     header('Location: ./index.php?page=add_to_cart');
 }
 
