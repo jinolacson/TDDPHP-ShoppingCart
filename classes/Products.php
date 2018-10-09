@@ -3,7 +3,7 @@
  * Product Class
  */
 
-require_once 'Abstract_products.php';
+require_once './Abstract/Abstract_products.php';
 
 class Products extends Abstract_products
 {

@@ -1,4 +1,8 @@
 <?php 
+if (!isset($_SESSION)) {
+    session_start();
+}
+
 ini_set('display_errors', 1);
 ?>
 <!DOCTYPE html>
@@ -16,8 +20,7 @@ ini_set('display_errors', 1);
     //include templates
     $page = $_GET['page'] ?? 'products';
 
-    switch($page)
-    {
+    switch ($page) {
         case 'products':
             include 'pages/product_list.php';
         break;

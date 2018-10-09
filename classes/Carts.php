@@ -4,7 +4,7 @@
  */
 
 require_once 'Products.php';
-require_once 'Abstract_carts.php';
+require_once './Abstract/Abstract_carts.php';
 
 class Carts extends Abstract_carts
 {
@@ -31,9 +31,6 @@ class Carts extends Abstract_carts
 
     public function __construct($item_code = null)
     {
-        if (!isset($_SESSION)) {
-            session_start();
-        }
         //instantiate Product Object
         self::$products = new Products();
 

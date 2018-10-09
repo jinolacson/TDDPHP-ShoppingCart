@@ -90,7 +90,7 @@ class ProductsTest extends TestCase
      * Stop executing parent file
      *
      * @return void
-     * access private
+     * access protected
      */
     protected function tearDown()
     {
