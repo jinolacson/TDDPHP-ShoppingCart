@@ -4,8 +4,9 @@
  */
 
 require_once './Abstract/Abstract_products.php';
+require_once './interface/interface_cart.php';
 
-class Products extends Abstract_products
+class Products extends Abstract_products implements CART
 {
     /**
      * Collection of Products Lists
@@ -46,38 +47,38 @@ class Products extends Abstract_products
     {
     
         self::addproducts([
-            'id' => 101,
-            'quantity' => 10,
-            'name' => "Mouse",
-            'price' => 100
+            CART::ID => 101,
+            CART::QUANTITY => 10,
+            CART::NAME => "Mouse",
+            CART::PRICE => 100
         ]);
 
         self::addproducts([
-            'id' => 102,
-            'quantity' => 10,
-            'name' => "Keyboard",
-            'price' => 250
+            CART::ID => 102,
+            CART::QUANTITY => 10,
+            CART::NAME => "Keyboard",
+            CART::PRICE => 250
         ]);
 
         self::addproducts([
-            'id' => 103,
-            'quantity' => 10,
-            'name' => "Monitor",
-            'price' => 8000
+            CART::ID => 103,
+            CART::QUANTITY => 10,
+            CART::NAME => "Monitor",
+            CART::PRICE => 8000
         ]);
 
         self::addproducts([
-            'id' => 104,
-            'quantity' => 10,
-            'name' => "Chair",
-            'price' => 6000
+            CART::ID => 104,
+            CART::QUANTITY => 10,
+            CART::NAME => "Chair",
+            CART::PRICE => 6000
         ]);
 
         self::addproducts([
-            'id' => 105,
-            'quantity' => 10,
-            'name' => "Avr",
-            'price' => 6000
+            CART::ID => 105,
+            CART::QUANTITY => 10,
+            CART::NAME => "Avr",
+            CART::PRICE => 6000
         ]);
     }
     /**
@@ -91,20 +92,20 @@ class Products extends Abstract_products
      */
     public static function addProducts($options = [])
     {
-        if (isset($options['id']) && is_numeric($options['id'])) {
-            self::$id = $options['id'];
+        if (isset($options[CART::ID]) && is_numeric($options[CART::ID])) {
+            self::$id = $options[CART::ID];
         }
 
-        if (isset($options['quantity']) && is_numeric($options['quantity'])) {
-            self::$quantity = $options['quantity'];
+        if (isset($options[CART::QUANTITY]) && is_numeric($options[CART::QUANTITY])) {
+            self::$quantity = $options[CART::QUANTITY];
         }
 
-        if (isset($options['name'])) {
-            self::$name = $options['name'];
+        if (isset($options[CART::NAME])) {
+            self::$name = $options[CART::NAME];
         }
         
-        if (isset($options['price']) &&   is_numeric($options['price']) ) {
-            self::$price = $options['price'];
+        if (isset($options[CART::PRICE]) &&   is_numeric($options[CART::PRICE]) ) {
+            self::$price = $options[CART::PRICE];
         }
 
         self::productLists();
@@ -119,10 +120,10 @@ class Products extends Abstract_products
     {
         array_push(self::$products, 
         [
-            'id' => self::$id,
-            'name' => self::$name,
-            'price' => self::$price,
-            'quantity' => self::$quantity
+            CART::ID => self::$id,
+            CART::NAME => self::$name,
+            CART::PRICE => self::$price,
+            CART::QUANTITY => self::$quantity
         ]);
     }
 
@@ -183,7 +184,7 @@ class Products extends Abstract_products
         $product_items = is_array(self::readProducts()) || is_object(self::readProducts()) ? self::readProducts() : null;
 
         foreach ($product_items as $key => $prods) {
-            if ($prods['id'] == trim($search)) {
+            if ($prods[CART::ID] == trim($search)) {
                 return ($prods);
             }
         }

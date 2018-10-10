@@ -6,7 +6,7 @@
 require_once 'Products.php';
 require_once './Abstract/Abstract_carts.php';
 
-class Carts extends Abstract_carts
+class Carts extends Abstract_carts implements CART
 {
     /**
      * product variable
@@ -59,10 +59,10 @@ class Carts extends Abstract_carts
     public function setCartSessionItems()
     {
         $_SESSION['cart'][$this->getItemCode()] =[
-            'id' => $this->getId(),
-            'quantity' => $this->getQuantity(),
-            'name' => $this->getName(),
-            'price' =>  $this->getprice()
+            CART::ID => $this->getId(),
+            CART::QUANTITY => $this->getQuantity(),
+            CART::NAME => $this->getName(),
+            CART::PRICE =>  $this->getprice()
         ];
     }
 
@@ -97,7 +97,7 @@ class Carts extends Abstract_carts
      */
     public function getId() : ?string
     {
-        return self::$products::searchProductCode($this->getItemCode())['id'];
+        return self::$products::searchProductCode($this->getItemCode())[CART::ID];
     }
 
     /**
@@ -108,7 +108,7 @@ class Carts extends Abstract_carts
      */
     public function getQuantity() : ?string
     {
-        return self::$products::searchProductCode($this->getItemCode())['quantity'];
+        return self::$products::searchProductCode($this->getItemCode())[CART::QUANTITY];
     }
 
     /**
@@ -119,7 +119,7 @@ class Carts extends Abstract_carts
      */
     public function getName() : ?string
     {
-        return self::$products::searchProductCode($this->getItemCode())['name'];
+        return self::$products::searchProductCode($this->getItemCode())[CART::NAME];
     }
 
     /**
@@ -130,7 +130,7 @@ class Carts extends Abstract_carts
      */
     public function getPrice() : ?string
     {
-        return self::$products::searchProductCode($this->getItemCode())['price'];
+        return self::$products::searchProductCode($this->getItemCode())[CART::PRICE];
     }
 
     /**
@@ -154,7 +154,7 @@ class Carts extends Abstract_carts
     {
         $total_items = 0;
         foreach ($this->getCartItems() as $key => $items) {
-            $total_items += (int)self::$products::searchProductCode($items['id'])['price'];
+            $total_items += (int)self::$products::searchProductCode($items[CART::ID])[CART::PRICE];
         }
 
         return $total_items > 0 ? number_format($total_items, 2, '.', ',') : 0;
