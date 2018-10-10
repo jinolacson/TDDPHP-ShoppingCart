@@ -21,8 +21,6 @@ if (isset($item_code) && is_numeric($item_code) && isset($action_delete))
     //redirect cart page
     header('Location: ./index.php?page=add_to_cart');
 }
-
-$cart = new Carts();
 ?>
 
 <h1>My Cart</h1>
