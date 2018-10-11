@@ -2,11 +2,10 @@
 /**
  * Product Class
  */
+use AbsContract\AbstractProducts;
+use InterfaceContract\CART;
 
-require_once './Abstract/Abstract_products.php';
-require_once './interface/interface_cart.php';
-
-class Products extends Abstract_products implements CART
+class Products extends AbstractProducts implements CART
 {
     /**
      * Collection of Products Lists

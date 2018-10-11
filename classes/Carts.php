@@ -2,11 +2,11 @@
 /**
  * Carts Class
  */
+use AbsContract\AbstractCarts;
+use Classes\Products;
+use InterfaceContract\CART;
 
-require_once 'Products.php';
-require_once './Abstract/Abstract_carts.php';
-
-class Carts extends Abstract_carts implements CART
+class Carts extends AbstractCarts implements CART
 {
     /**
      * product variable
