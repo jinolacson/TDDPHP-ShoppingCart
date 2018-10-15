@@ -2,6 +2,10 @@
 /**
  * Product Class
  */
+
+//declare namespace classes
+namespace Classes;
+
 use AbsContract\AbstractProducts;
 use InterfaceContract\CART;
 

@@ -1,6 +1,9 @@
 <?php
 declare(strict_types=1);
 
+//use cart class
+use Classes\Carts;
+
 use PHPUnit\Framework\TestCase;
 
 /**

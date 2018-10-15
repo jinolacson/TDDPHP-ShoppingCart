@@ -2,15 +2,13 @@
     "name": "Shopping Cart",
     "description": "Integration of PHP Unit",
     "autoload": {
-    	"classmap": [
-            "classes/"
-        ],
         "psr-4": { 
+            "Classes\\" : "classes/",
             "AbsContract\\" : "abstract/",
-            "Contract\\" : "contract/"
+            "InterfaceContract\\" : "contract/"
         }
     },
     "require-dev": {
-        "phpunit/phpunit": "^6"
+        "phpunit/phpunit": "^7"
     }
 }
