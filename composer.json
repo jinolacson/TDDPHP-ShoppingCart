@@ -1,0 +1,14 @@
+{
+    "name": "Shopping Cart",
+    "description": "Integration of PHP Unit",
+    "autoload": {
+        "psr-4": { 
+            "Classes\\" : "classes/",
+            "Abstracts\\" : "abstract/",
+            "Interfaces\\" : "interface/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7"
+    }
+}
