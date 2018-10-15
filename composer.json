@@ -4,8 +4,8 @@
     "autoload": {
         "psr-4": { 
             "Classes\\" : "classes/",
-            "AbsContract\\" : "abstract/",
-            "InterfaceContract\\" : "contract/"
+            "Abstracts\\" : "abstract/",
+            "Interfaces\\" : "interface/"
         }
     },
     "require-dev": {

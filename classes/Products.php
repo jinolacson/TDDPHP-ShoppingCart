@@ -3,11 +3,11 @@
  * Product Class
  */
 
-//declare namespace classes
+//Declare namespace classes
 namespace Classes;
 
-use AbsContract\AbstractProducts;
-use InterfaceContract\CART;
+use Abstracts\AbstractProducts;
+use Interfaces\CART;
 
 class Products extends AbstractProducts implements CART
 {
