@@ -160,7 +160,7 @@ class Carts extends AbstractCarts implements CART
             $total_items += (int)self::$products::searchProductCode($items[CART::ID])[CART::PRICE];
         }
 
-        return $total_items > 0 ? number_format($total_items, 2, '.', ',') : 0;
+        return $total_items > 0 ? $total_items : 0;
     }
 
     /**
