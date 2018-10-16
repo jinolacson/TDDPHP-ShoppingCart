@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 //use class Products
 use Classes\Products;
+
 use PHPUnit\Framework\TestCase;
 
 /**
