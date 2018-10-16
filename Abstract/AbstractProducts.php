@@ -1,8 +1,9 @@
 <?php 
-
 declare(strict_types=1);
 
-abstract class Abstract_products
+namespace Abstracts;
+
+abstract class AbstractProducts
 {
     abstract static function addProducts($options = array());
     abstract static function productLists();

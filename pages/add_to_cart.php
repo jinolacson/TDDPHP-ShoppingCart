@@ -1,13 +1,14 @@
 <?php 
-
-//instantiate cart class
-require_once 'classes/Carts.php';
+//Import Carts and Products Class
+use Classes\Carts;
+use Classes\Products;
 
 $item_code = $_GET['item_code'] ?? false;
 $action_delete = $_GET['delete'] ?? null;
 
 //instantiate object cart
-$cart = new Carts();
+$cart = new Carts(new Products());
+
 
 if (isset($item_code) && is_numeric($item_code)) 
 {

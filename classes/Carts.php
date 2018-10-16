@@ -2,11 +2,14 @@
 /**
  * Carts Class
  */
+//Declare namespace classes
+namespace Classes;
 
-require_once 'Products.php';
-require_once './Abstract/Abstract_carts.php';
+use Abstracts\AbstractCarts;
+use Classes\Products;
+use Interfaces\CART;
 
-class Carts extends Abstract_carts implements CART
+class Carts extends AbstractCarts implements CART
 {
     /**
      * product variable
@@ -29,10 +32,10 @@ class Carts extends Abstract_carts implements CART
      */
     protected static $item_id = 0;
 
-    public function __construct()
+    public function __construct(Products $products)
     {
         //instantiate Product Object
-        self::$products = new Products();
+        self::$products = $products;
     }
 
     /**

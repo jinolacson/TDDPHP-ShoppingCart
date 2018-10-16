@@ -1,9 +1,9 @@
 <?php 
-    //require product class
-    require_once 'classes/Products.php';
 
-    //instantiate Product Object
-    $products = new Products();
+//Import Class Products
+use Classes\Products;
+//instantiate Product Object
+$products = new Products();
 ?>
 
 <h1>Product List</h1>

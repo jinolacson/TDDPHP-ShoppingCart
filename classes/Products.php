@@ -3,10 +3,13 @@
  * Product Class
  */
 
-require_once './Abstract/Abstract_products.php';
-require_once './interface/interface_cart.php';
+//Declare namespace classes
+namespace Classes;
 
-class Products extends Abstract_products implements CART
+use Abstracts\AbstractProducts;
+use Interfaces\CART;
+
+class Products extends AbstractProducts implements CART
 {
     /**
      * Collection of Products Lists
