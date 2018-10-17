@@ -1,4 +1,4 @@
-##########  Installations Guide ###########
+##########  Installation Guide ###########
 
 1. composer
     composer install
@@ -7,11 +7,4 @@
 2. run test(s)
     ./vendor/bin/phpunit tests/ProductsTest.php
     ./vendor/bin/phpunit tests/CartsTest.php
-
-
-###########  Learning  ######################
-
-1. stubs
-2. mock
-3. Best practices (Dependency Injection)
-4. TestDox
+    ./vendor/bin/phpunit tests/CheckoutStubTest.php
