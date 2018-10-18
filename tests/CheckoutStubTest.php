@@ -76,13 +76,13 @@ class CheckoutStubTest extends TestCase
 
     /**
      * Test checkout items detail
-     * Assume a failed test, should be an empty Item details first
+     * Should be an empty Item details first
      *
      * @return void
      */
     public function testItemsDetailsIfNotArrayOrNull()
     {
-        $this->chk->method('checkoutItemsDetails')->will($this->returnValue([ "AVR" => 2000 ]));
+        $this->chk->method('checkoutItemsDetails')->will($this->returnValue(null));
         $this->assertTrue(!is_array($this->chk->checkoutItemsDetails()), "Items should be empty cart!.");
     }
     

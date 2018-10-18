@@ -2,6 +2,8 @@
 declare(strict_types=1);
 
 //use cart class
+use Classes\Products;
+
 use Classes\Carts;
 
 use PHPUnit\Framework\TestCase;
@@ -25,7 +27,7 @@ class CartsTest extends TestCase
     public function setUp()
     {
         // Instanciate of new Cart Object
-        $this->cart = new Carts();
+        $this->cart = new Carts(new Products());
         $this->cart->setItemCode(self::$item_code_example);
     }
     
