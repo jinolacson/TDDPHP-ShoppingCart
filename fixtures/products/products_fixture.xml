@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<dataset>
+    <products product_id="101" quantity="1" name="CPU" price="1000" />
+    <products product_id="102" quantity="2" name="AVR" price="2000" />
+    <products product_id="103" quantity="3" name="CHAIR" price="3000" />
+    <products product_id="104" quantity="4" name="UPS" price="4000" />
+    <products product_id="105" quantity="5" name="MOUSE" price="5000" />
+</dataset>

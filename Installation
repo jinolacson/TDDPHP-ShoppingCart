@@ -4,7 +4,16 @@
     composer install
     composer dump-autoload --optimize
 
-2. run test(s)
+2. Edit IDbCredentials.php 
+    host 
+    username
+    password
+    database name
+
+3. run test(s)
     ./vendor/bin/phpunit tests/ProductsTest.php
     ./vendor/bin/phpunit tests/CartsTest.php
     ./vendor/bin/phpunit tests/CheckoutStubTest.php
+    ./vendor/bin/phpunit --testdox tests/ProductsModelTest.php
+
+
